@@ -1,0 +1,20 @@
+
+.signInMainDiv {
+    background-color: white;
+    height: 40vh;
+    width: 35vw;
+    border: 0.1em solid black;
+    border-radius: 0.5em;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.labelText {
+    font-size: 1em;
+    font-weight: bold;
+    align-items: flex-end;
+    display: flex;
+}
