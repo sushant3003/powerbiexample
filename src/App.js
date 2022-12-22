@@ -22,7 +22,7 @@ class App extends Component {
     <Provider store={store}>
       <div className="App"  style={{ overflow: 'hidden'}}>
         <Switch>
-          {/* <Route path="/" component={Welcome} /> */}
+          <Route path="/" component={Welcome} />
           <Route path="/home" component={Welcome} />
           <Route path="/main" component={Main} />
           <Route path="/power" component={Power} />
