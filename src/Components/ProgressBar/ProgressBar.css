@@ -1,0 +1,25 @@
+.progressBarCustom {
+    width: 360px;
+    background-color: black;
+    padding: 20px 20px 20px 20px;
+    border-radius: 0.25em;
+}
+
+.progress-bar {
+    background-color: #00bfff;
+    height: 25px;
+    width: 0;
+}
+
+.progress {
+    border-radius: 1.25em;
+    height: 1.75em !important;
+    width: 94%;
+}
+
+.totalRaised {
+    margin-top: -0.2em;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}

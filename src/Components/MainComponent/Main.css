@@ -4,6 +4,7 @@
 	height: 55px;
 	left: 0;
 	top: 0;
+    z-index: 100;
 }
 
 .navigate{
@@ -27,5 +28,13 @@ a:hover {
 .inputURL {
     width: 500px;
     font-size: 20px;
-    margin-top: 30vh;
+    margin-top: 10vh;
+}
+
+.progressBarDiv {
+    margin-left: 85vh;
+}
+
+.chartDiv {
+    width: 10%;
 }

@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Welcome from './Components/Welcome/Welcome';
 import Main from './Components/MainComponent/Main';
 import Power from './Components/Power/Power';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 class App extends Component {
 
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
   return (
     <Provider store={store}>
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="App"  style={{ overflow: 'hidden'}}>
         <Switch>
           <Route path="/home" component={Welcome} />

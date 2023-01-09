@@ -2,7 +2,10 @@ import { Component } from 'react';
 import { fetchImages } from '../../utils/validate';
 import { connect } from "react-redux";
 import "./Main.css";
-// import { ShareSocial } from 'react-share-social'
+import Carousel from "../Carousel/Carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { PieChart } from 'react-minimal-pie-chart';
+
 import {
     FacebookIcon,
     FacebookMessengerIcon,
@@ -18,13 +21,14 @@ import {
     TwitterShareButton,
     WhatsappShareButton,
 } from "react-share";
+import ProgressBarCustom from '../ProgressBar/ProgressBar';
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
             images: [],
-            url: ''
+            url: 'https://'
         }
 
     }
@@ -44,7 +48,7 @@ class Main extends Component {
     render() {
 
         const header =
-            <div className="header">
+            <div className="header position-fixed w-100">
                 <div className="title">Home</div>
             </div>;
         const shareUrl = this.state.url;
@@ -52,16 +56,49 @@ class Main extends Component {
         return (
             <div>
                 {header}
-                <div className='row col-12  justify-content-end d-flex'>
-                    <h2 className='username col-5'>{this.props.signInState?.userDetails?.email}</h2>
-                    <button className='navigate col-2 mr-2' style={{ marginLeft: window.innerWidth * 0.2 }}>
+                <h2 className='username col-5'>{this.props.signInState?.userDetails?.email}</h2>
+                <div className='row col-12  justify-content-end d-flex mt-5'>
+                    {/* <button className='navigate col-2 mr-2' style={{ marginLeft: window.innerWidth * 0.2 }}>
                         <a href="/power">Power BI</a>
-                    </button>
-                    <button className='navigate col-2 ml-2' style={{ marginLeft: window.innerWidth * 0.02 }} >
+                    </button> */}
+                    {/* <button className='navigate col-2 ml-2' style={{ marginLeft: window.innerWidth * 0.02 }} >
                         <a href="/home">Sign Out</a>
-                    </button>
+                    </button> */}
                 </div>
-                 <div className='m-5'>
+                <div className='w-100 align-center d-flex justify-content-center'>
+                    <div className='align-center w-75'>
+                        <Carousel  
+                        showArrows={true}
+                        stopOnHover={true}
+                        centerMode={true}/>
+                    </div>
+                </div>
+                <div className='progressBarDiv'>
+                    <ProgressBarCustom now={60} total={"5,00,000"} raised={200000}/>
+                </div>
+                <div className='w-100 align-center d-flex justify-content-center'>
+                    <div className='chartDiv align-center mt-3'>
+                        <PieChart
+                            data={[
+                                { title: 'One', value: 32, color: '#e90fb0' },
+                                { title: 'Two', value: 8, color: '#15b8dd' },
+                            ]}
+                            animate
+                            animationDuration={500}
+                            animationEasing="ease-out"
+                            lengthAngle={360}
+                            paddingAngle={0}
+                            startAngle={340}
+                            viewBoxSize={[100, 100]}
+                            labelPosition={65}
+                            segmentsShift={1}
+                            label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
+                            labelStyle={{ fontSize: '10px', fill: '#fff' , fontWeight: 'bold'}}
+                            />
+                    </div>
+                </div>
+               
+                 <div className='ml-5 mb-5'>
                     <input value={this.state.url}
                      type='text' 
                      onChange={(e)=> this.onUrlChange(e)} 
@@ -71,7 +108,7 @@ class Main extends Component {
                     </input>
                 </div>
 
-                <div className="Demo__some-network">
+                <div className="Demo__some-network mb-5">
                     <FacebookShareButton
                         url={shareUrl}
                         quote={title}
